@@ -1,0 +1,11 @@
+- time = Benchmark.ms
+	h1 = @record.title
+	p.text-muted #{l @record.created_at, format: :long} by #{@record.user.name}
+	p = @record.body
+	/ h2 #{@record.comments.count} comments
+	h2 Comments
+	hr
+	- @record.comments.each do |comment|
+		= render 'comment', comment: comment
+
+span.alert.alert-success.time #{time.round(0)} ms

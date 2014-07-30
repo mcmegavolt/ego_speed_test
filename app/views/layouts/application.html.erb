@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EgoSpeed</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class=<%='active' if controller_name == 'home' %>>
+          	<%= link_to 'Home', root_path %>
+          </li>
+          <li class=<%='active' if controller_name == 'records' %>><%= link_to 'Records', records_path %></li>
+          <li class=<%='active' if controller_name == 'populator' %>><%= link_to 'Populate Database', populate_form_path %></li>
+        </ul>
+        <h3 class="text-muted">Ego Speed Test</h3>
+      </div>
+
+      <% flash.each do |key, value| %>
+			  <%= content_tag :div, value, class: "alert alert-#{key}", role: "alert" %>
+			<% end %>
+
+      <%= yield %>
+      
+
+      <div class="footer">
+        <p>&copy; Aleksandr Ponomarenko 2014 <span class="pull-right"><%= link_to 'Clear Database', drop_path, :"data-confirm" => "Shure?", :"data-method" => "drop", :class => 'btn btn-danger btn-sm' %></span></p>
+
+      </div>
+
+    </div> <!-- /container -->
+
+
+</body>
+</html>

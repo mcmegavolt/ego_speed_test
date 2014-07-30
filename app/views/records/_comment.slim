@@ -1,0 +1,7 @@
+div style="margin-left:50px;"
+	p.text-muted #{l comment.created_at, format: :long} by #{comment.user.name}
+	p = comment.body
+	hr
+	- if comment.child_comments.exists?
+		- comment.child_comments.each do |ch|
+			= render 'comment', comment: ch

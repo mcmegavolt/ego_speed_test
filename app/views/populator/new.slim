@@ -1,0 +1,17 @@
+h1.heading Populate
+= form_tag populate_path, class: "form-horizontal"
+	.form-group
+		= label_tag 'Users', nil, class: "col-sm-2 control-label"
+		.col-sm-10
+			= text_field_tag 'users'
+	.form-group
+		= label_tag 'Records', nil, class: "col-sm-2 control-label"
+		.col-sm-10
+			= text_field_tag 'records'
+	.form-group
+		= label_tag 'Comments (root)', nil, class: "col-sm-2 control-label"
+		.col-sm-10
+			= text_field_tag 'comments'
+	.form-group
+		.col-sm-offset-2.col-sm-1
+			= submit_tag 'Populate it', class: "btn btn-default"

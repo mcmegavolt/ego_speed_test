@@ -1,0 +1,13 @@
+.jumbotron
+  .lead 
+  	'This app uses  MongoDB with mongoid gem
+
+/ p Last users:
+/ ul
+/ 	- User.order('created_at DESC').limit(10).each do |user|
+/ 		li
+/ 			strong = user.name
+/ 			br
+/ 			'Records: #{user.records.count}
+/ 			'|
+/ 			'Comments: #{user.comments.count}

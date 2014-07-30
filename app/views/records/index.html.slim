@@ -1,0 +1,11 @@
+h1
+	'Records
+	small There is #{Record.count} records in database
+p
+	span.label.label-info style="display: inline-block;" Click on 
+	'&nbsp;some record to view:
+ul 
+  - Record.order('created_at ASC').limit(20).each do |r|
+    li
+      = link_to r.title, record_path(r) 
+      / '&nbsp;(#{r.comments.count} comments)  
